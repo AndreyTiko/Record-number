@@ -9,17 +9,12 @@
  *
  */
 function expandedForm (arg){
-    let b = 0; let g =1;
-    let arr = String(arg).replace(/./g,(a,i,w)=>{
+const expandedForm0 = n => n.toString()
+    .split("")
+    .reverse()
+    .map( (a, i) => a * Math.pow(10, i))
+    .filter(a => a > 0)
+    .reverse()
+    .join(" + ");
 
-        while(b<w.length){
-            let result = w.charAt(b++)*Math.pow(10,w.length-b);
-            g *= 10;
-            return result!=0?result + ' + ':'';
-        };
-    });
-    return arr.slice(0,-3);
-};
-
-//let red = '70000 + 300 + 4'
-console.log(expandedForm (70304));
+console.log(expandedForm0 (70304));
