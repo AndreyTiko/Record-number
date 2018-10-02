@@ -1,0 +1,25 @@
+/**
+ *Запись номера в расширенной форме
+ * Вам будет присвоен номер, и вам нужно будет вернуть его в виде строки в расширенной форме. Например:
+ * expandedForm (12); // Должен возвращать '10 + 2 '
+ * expandedForm (42); // Должен возвращать '40 + 2 '
+ * expandedForm (70304); // Должен возвращать «70000 + 300 + 4»
+ * ПРИМЕЧАНИЕ. Все числа будут целыми числами больше 0.
+ * Если вам понравилась эта ката, проверьте часть 2!
+ *
+ */
+function expandedForm (arg){
+    let b = 0; let g =1;
+    let arr = String(arg).replace(/./g,(a,i,w)=>{
+
+        while(b<w.length){
+            let result = w.charAt(b++)*Math.pow(10,w.length-b);
+            g *= 10;
+            return result!=0?result + ' + ':'';
+        };
+    });
+    return arr.slice(0,-3);
+};
+
+//let red = '70000 + 300 + 4'
+console.log(expandedForm (70304));
